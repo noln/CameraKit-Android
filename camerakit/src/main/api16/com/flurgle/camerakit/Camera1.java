@@ -69,6 +69,10 @@ public class Camera1 extends CameraImpl {
 
     private Handler mHandler = new Handler();
 
+    public Camera getCamera() {
+        return mCamera;
+    }
+
     Camera1(CameraListener callback, PreviewImpl preview) {
         super(callback, preview);
         preview.setCallback(new PreviewImpl.Callback() {

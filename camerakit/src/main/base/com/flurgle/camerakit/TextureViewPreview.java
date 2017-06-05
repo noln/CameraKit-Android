@@ -15,6 +15,10 @@ class TextureViewPreview extends PreviewImpl {
 
     private int mDisplayOrientation;
 
+    public TextureView getTextureView() {
+        return mTextureView;
+    }
+
     TextureViewPreview(Context context, ViewGroup parent) {
         final View view = View.inflate(context, R.layout.texture_view, parent);
         mTextureView = (TextureView) view.findViewById(R.id.texture_view);
