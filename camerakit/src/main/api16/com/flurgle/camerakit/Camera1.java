@@ -264,10 +264,16 @@ public class Camera1 extends CameraImpl {
 
     @Override
     void endVideo() {
-        mMediaRecorder.stop();
-        mMediaRecorder.release();
-        mMediaRecorder = null;
-        mCameraListener.onVideoTaken(mVideoFile);
+        try {
+            mMediaRecorder.stop();
+            mMediaRecorder.release();
+            mMediaRecorder = null;
+            mCameraListener.onVideoTaken(mVideoFile);
+        }
+        catch (Exception e) {
+            mMediaRecorder = null;
+            mCameraListener.onVideoTaken(null);
+        }
     }
 
     @Override
